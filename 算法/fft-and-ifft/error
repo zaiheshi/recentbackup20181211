@@ -1,0 +1,71 @@
+nnn.cpp: In function ‘std::vector<complex<long double> > RECURSIVE_FFT(std::vector<complex<long double> >)’:
+nnn.cpp:186:21: error: no matching function for call to ‘std::vector<complex<long double> >::push_back(NULL)’
+   tmp.push_back(NULL);
+                     ^
+In file included from /usr/include/c++/8.2.1/vector:64,
+                 from nnn.cpp:2:
+/usr/include/c++/8.2.1/bits/stl_vector.h:1074:7: note: candidate: ‘void std::vector<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = complex<long double>; _Alloc = std::allocator<complex<long double> >; std::vector<_Tp, _Alloc>::value_type = complex<long double>]’
+       push_back(const value_type& __x)
+       ^~~~~~~~~
+/usr/include/c++/8.2.1/bits/stl_vector.h:1074:7: note:   no known conversion for argument 1 from ‘long int’ to ‘const value_type&’ {aka ‘const complex<long double>&’}
+/usr/include/c++/8.2.1/bits/stl_vector.h:1090:7: note: candidate: ‘void std::vector<_Tp, _Alloc>::push_back(std::vector<_Tp, _Alloc>::value_type&&) [with _Tp = complex<long double>; _Alloc = std::allocator<complex<long double> >; std::vector<_Tp, _Alloc>::value_type = complex<long double>]’
+       push_back(value_type&& __x)
+       ^~~~~~~~~
+/usr/include/c++/8.2.1/bits/stl_vector.h:1090:7: note:   no known conversion for argument 1 from ‘long int’ to ‘std::vector<complex<long double> >::value_type&&’ {aka ‘complex<long double>&&’}
+nnn.cpp: In function ‘std::vector<complex<long double> > RECURSIVE_IFFT_part(std::vector<complex<long double> >)’:
+nnn.cpp:217:21: error: no matching function for call to ‘std::vector<complex<long double> >::push_back(NULL)’
+   tmp.push_back(NULL);
+                     ^
+In file included from /usr/include/c++/8.2.1/vector:64,
+                 from nnn.cpp:2:
+/usr/include/c++/8.2.1/bits/stl_vector.h:1074:7: note: candidate: ‘void std::vector<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = complex<long double>; _Alloc = std::allocator<complex<long double> >; std::vector<_Tp, _Alloc>::value_type = complex<long double>]’
+       push_back(const value_type& __x)
+       ^~~~~~~~~
+/usr/include/c++/8.2.1/bits/stl_vector.h:1074:7: note:   no known conversion for argument 1 from ‘long int’ to ‘const value_type&’ {aka ‘const complex<long double>&’}
+/usr/include/c++/8.2.1/bits/stl_vector.h:1090:7: note: candidate: ‘void std::vector<_Tp, _Alloc>::push_back(std::vector<_Tp, _Alloc>::value_type&&) [with _Tp = complex<long double>; _Alloc = std::allocator<complex<long double> >; std::vector<_Tp, _Alloc>::value_type = complex<long double>]’
+       push_back(value_type&& __x)
+       ^~~~~~~~~
+/usr/include/c++/8.2.1/bits/stl_vector.h:1090:7: note:   no known conversion for argument 1 from ‘long int’ to ‘std::vector<complex<long double> >::value_type&&’ {aka ‘complex<long double>&&’}
+nnn.cpp: In function ‘std::vector<complex<long double> > RECURSIVE_IFFT(std::vector<complex<long double> >)’:
+nnn.cpp:233:11: error: no match for ‘operator/=’ (operand types are ‘__gnu_cxx::__alloc_traits<std::allocator<complex<long double> >, complex<long double> >::value_type’ {aka ‘complex<long double>’} and ‘complex<long double>’)
+   iftt[i] /= complex<long double>(n,0);
+nnn.cpp: In function ‘std::vector<complex<long double> > operator*(const std::vector<complex<long double> >&, const std::vector<complex<long double> >&)’:
+nnn.cpp:282:17: error: passing ‘const value_type’ {aka ‘const complex<long double>’} as ‘this’ argument discards qualifiers [-fpermissive]
+   t = a[i] * b[i];
+                 ^
+In file included from nnn.cpp:6:
+complex.cpp:52:14: note:   in call to ‘complex<T> complex<T>::operator*(const complex<T>&) [with T = long double]’
+   complex<T> operator*(const complex<T>& a)
+              ^~~~~~~~
+nnn.cpp: At global scope:
+nnn.cpp:297:5: error: redefinition of ‘int main()’
+ int main()
+     ^~~~
+In file included from nnn.cpp:6:
+complex.cpp:90:5: note: ‘int main()’ previously defined here
+ int main()
+     ^~~~
+complex.cpp: In instantiation of ‘complex<T> complex<T>::inverse() const [with T = double]’:
+complex.cpp:62:33:   required from ‘complex<T> complex<T>::operator/(const complex<T>&) [with T = double]’
+complex.cpp:94:34:   required from here
+complex.cpp:72:4: error: invalid use of non-static member function ‘T complex<T>::real() const [with T = double]’
+    tmp.setReal(real);
+    ^~~
+complex.cpp:19:5: note: declared here
+   T real()const
+     ^~~~
+complex.cpp:73:23: error: invalid use of member function ‘T complex<T>::imag() const [with T = double]’ (did you forget the ‘()’ ?)
+    tmp.setImag(T(-1.0)*imag);
+                ~~~~~~~^~~~~
+complex.cpp: In instantiation of ‘complex<T> complex<T>::inverse() const [with T = long double]’:
+complex.cpp:62:33:   required from ‘complex<T> complex<T>::operator/(const complex<T>&) [with T = long double]’
+nnn.cpp:214:104:   required from here
+complex.cpp:72:4: error: invalid use of non-static member function ‘T complex<T>::real() const [with T = long double]’
+    tmp.setReal(real);
+    ^~~
+complex.cpp:19:5: note: declared here
+   T real()const
+     ^~~~
+complex.cpp:73:23: error: invalid use of member function ‘T complex<T>::imag() const [with T = long double]’ (did you forget the ‘()’ ?)
+    tmp.setImag(T(-1.0)*imag);
+                ~~~~~~~^~~~~
